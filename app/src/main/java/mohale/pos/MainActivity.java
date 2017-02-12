@@ -1,11 +1,10 @@
 package mohale.pos;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import io.realm.Realm;
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Data Objects
     private Realm realm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         productName = (EditText) findViewById(R.id.product_name);
         productPrice = (EditText) findViewById(R.id.product_price);
-        submit = (Button)findViewById(R.id.submit_btn);
+        submit = (Button) findViewById(R.id.submit_btn);
 
     }
 
-    public void saveProduct(View v){
+    public void saveProduct(View v) {
 
         int priceValue = Integer.parseInt(productPrice.getText().toString());
         String item_name = productName.getText().toString();
@@ -68,15 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 RealmQuery<Product> query = realm.where(Product.class);
                 // Execute the query:
                 RealmResults<Product> result1 = query.findAll();
-                for (Product p:  result1) {
-                    Toast.makeText(MainActivity.this, ""+p.getName(), Toast.LENGTH_SHORT).show();
+                for (Product p : result1) {
+                    Toast.makeText(MainActivity.this, "" + p.getName(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Realm.Transaction.OnError() {
             @Override
             public void onError(Throwable error) {
 
-                Toast.makeText(MainActivity.this, "Bad "+ error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Bad " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -11,7 +11,7 @@ import io.realm.RealmConfiguration;
 public class BaseApplication extends Application {
 
     @Override
-    public void onCreate(){
+    public void onCreate() {
 
         super.onCreate();
         Realm.init(getBaseContext());
