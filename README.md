@@ -3,6 +3,9 @@ Realm is a mobile database with its own persistence engine built for simplicity 
 
 This app can be used as a template for Realm database driven aandroid app, there is nothing much implemented in the app except the basics of Realm
 
+## Documentation 
+Realm's documentation can be found here https://realm.io/docs/java/latest/
+
 ##How to initialize Realm in your app
 Create a class that extends Application
 
