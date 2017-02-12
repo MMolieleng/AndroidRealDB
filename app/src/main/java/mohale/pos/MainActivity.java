@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import io.realm.Realm;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText productName;
     private EditText productPrice;
     private Button submit;
+    private TextView display;
 
 
     //Data Objects
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         productName = (EditText) findViewById(R.id.product_name);
         productPrice = (EditText) findViewById(R.id.product_price);
         submit = (Button) findViewById(R.id.submit_btn);
+        display = (TextView) findViewById(R.id.display);
 
     }
 
@@ -68,9 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 RealmQuery<Product> query = realm.where(Product.class);
                 // Execute the query:
                 RealmResults<Product> result1 = query.findAll();
+
+                String res_row = "";
                 for (Product p : result1) {
-                    Toast.makeText(MainActivity.this, "" + p.getName(), Toast.LENGTH_SHORT).show();
+                    res_row += p.getName() + " " + p.getPrice() + " " + p.getId() + "\n";
+
                 }
+                display.setText(res_row);
             }
         }, new Realm.Transaction.OnError() {
             @Override

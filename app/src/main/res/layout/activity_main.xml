@@ -9,6 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="mohale.pos.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/display" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +26,8 @@
             android:layout_height="wrap_content"
             android:text="Add Product"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:layout_gravity="left" />
 
         <EditText
             android:id="@+id/product_name"
@@ -41,18 +47,18 @@
             android:inputType="number"
             android:hint="Price" />
 
+        <Button
+            android:id="@+id/submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:onClick="saveProduct"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFF"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-light" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/submit_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:onClick="saveProduct"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimary"
-        android:textColor="#FFF"
-        android:textAllCaps="false"
-        android:fontFamily="sans-serif-light" />
 </RelativeLayout>
