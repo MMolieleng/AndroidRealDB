@@ -20,7 +20,9 @@ public int getNextKey()
     catch (ArrayIndexOutOfBoundsException e) { 
         return 0;
     }
-} ```
+} 
+
+```
 
 ##How to initialize Realm in your app
 Create a class that extends Application
